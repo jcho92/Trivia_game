@@ -1,0 +1,59 @@
+
+body{
+    background: #278082;
+}
+#main{
+    text-align: center;
+    width: 100%;
+    display: none;
+    
+}
+#subMain{
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid  antiquewhite;
+   margin-top:10%;
+   background: #8bdee0;
+}
+#subStart{
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid  antiquewhite;
+   margin-top:10%;
+   background: #8bdee0;
+}
+#subFinished{
+    width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid  antiquewhite;
+   margin-top:10%;
+   background: #8bdee0;
+}
+#start{
+    text-align: center;
+    width: 100%;
+}
+button{
+    padding: 10px;
+    margin: 15px;
+    background:#008CBA;
+    color: antiquewhite;
+    font-size: 15px;
+    font-weight: bold;
+    
+}
+.answer{
+    font-size: 30px;
+    font-weight: bold;
+}
+#finished{
+    text-align:center;
+    width:100%;
+    display: none;
+}
+h2{
+    text-decoration: uppercase;
+}

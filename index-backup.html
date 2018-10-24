@@ -1,0 +1,109 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body>
+    <button id="generate">generate</button>
+    <h2 id="timer">30 seconds</h2>
+    <div id="questionHead">questions</div>
+    <div id="solutionHead"></div>
+
+
+    <script>
+        $(document).ready(function () {
+            var questionNumber = 0;
+            var timeLeft = 30
+            var timer;
+            var correct = 0;
+            var incorrect = 0;
+
+            var triviaForm = {
+                questions: {
+                    one: 'this is question one?',
+                    two: 'this is question two?',
+                    three: 'this is question three?'
+                },
+                solutions: {
+                    one: ['answer one', 'answer two', 'answer three', 'answer four'],
+                    two: ['answer 12one', 'answer two', 'answer three', 'answer four'],
+                    three: ['answer one', 'answer two', 'answer three', 'answer four']
+                },
+                answers: {
+                    one: 'answer one',
+                    two: 'answer two',
+                    three: 'answer three',
+                }
+            }
+
+            var questionDisplay = Object.values(triviaForm.questions)[questionNumber];
+            var solutionDisplay = Object.values(triviaForm.solutions)[questionNumber];
+            var answerDisplay = Object.values(triviaForm.answers)[questionNumber];
+            console.log(questionDisplay)
+            console.log(solutionDisplay)
+            //creates the first question
+            $("#generate").on("click", function () {
+                timer = setInterval(countDown, 1000);
+                var questionRow = $("<h2>");
+                questionRow.html(questionDisplay);
+                $('#questionHead').append(questionRow);
+
+                // creates the solutions
+                for (var i = 0; i < solutionDisplay.length; i++) {
+                    var solutionRow = $("<button>");
+                    solutionRow.html(solutionDisplay[i]);
+                    solutionRow.attr('data-answer', solutionDisplay[i]);
+                    solutionRow.attr('class', 'answer-btn');
+                    $('#solutionHead').append(solutionRow);
+                }
+                $('.answer-btn').on("click", function () {
+                    console.log($(this).text());
+                    console.log(typeof ($(this).text()))
+                    if ($(this).text() == answerDisplay) {
+                        console.log("correct")
+                        timeLeft = 30;
+                        clearInterval(timer);
+                        correct++;
+                        questionNumber++
+                        $(".answer-btn").remove();
+                    } else {
+                        console.log("incorrect");
+                        timeLeft = 30;
+                        clearInterval(timer);
+                        incorrect++;
+                        questionNumber++
+                        $(".answer-btn").remove();
+
+                    };
+
+
+
+                });
+
+
+
+            });
+
+
+
+            function countDown() {
+                timeLeft--;
+                $("#timer").html(timeLeft + "seconds");
+            };
+
+
+        });
+
+
+    </script>
+</body>
+
+</html>
