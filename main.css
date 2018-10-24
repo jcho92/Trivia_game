@@ -65,7 +65,7 @@ button:hover{
 h2{
     text-decoration: uppercase;
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 800px){
 
     #subMain{
         width: 100%;
